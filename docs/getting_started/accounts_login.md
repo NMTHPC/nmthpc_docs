@@ -8,7 +8,6 @@ This guide covers how to obtain an account on the NMT HPC cluster and how to con
 
 NMTHPC accounts are available to:
 - New Mexico Tech faculty, staff, and students
-- External collaborators working with NMT researchers (requires faculty sponsorship)
 
 ### Account Request Process
 
