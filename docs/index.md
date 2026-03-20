@@ -70,7 +70,6 @@ software/software_overview
 software/anaconda
 software/python
 software/r
-software/matlab
 software/vasp
 software/spack
 ```

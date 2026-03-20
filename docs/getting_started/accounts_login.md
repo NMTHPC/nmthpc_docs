@@ -8,31 +8,29 @@ This guide covers how to obtain an account on the NMT HPC cluster and how to con
 
 NMTHPC accounts are available to:
 - New Mexico Tech faculty, staff, and students
-- External collaborators working with NMT researchers (requires faculty sponsorship)
 
 ### Account Request Process
 
-1. Visit the NMT HPC account request portal (contact IT Services for the link)
-2. Fill out the account request form with:
-   - Your NMT credentials (if applicable)
-   - Project description and computational needs
-   - Faculty sponsor (for students and external collaborators)
-3. Wait for approval notification via email
-4. Once approved, you'll receive your login credentials and connection instructions
+1. Visit the [NMT HPC account Jira request portal](https://nmthpc.atlassian.net/servicedesk/customer/portal/2)
+- If this is the first time you are Jira, it will ask to create an account
+- You should use your NMT email to create this account 
+2. Fill out the account request form with
+3. Wait for an approval notification via email
+4. The email notification will contain instructions for the next steps
 
 ```{note}
-We will be onboarding users to the HPC systems individually during the Spring 2026 semester. If you have been given access to the system, please contact NMTHPC support (<hpc@nmthpc.atlassian.net>) for any questions regarding system access and usage. We will begin a more general onboarding process over the course of the summer 2026 semester.
+We will be onboarding users to the HPC systems individually during the Spring and Summer 2026 semesters. If you have been given access to the system, please create a support ticket through the [Jira support portal](https://nmthpc.atlassian.net/servicedesk/customer/portal/2) for any questions regarding system access and usage. We will begin a more general onboarding process over the course of the Fall 2026 semester.
 ```
 
 ## Connecting to NMTHPC
 
-NMTHPC is accessed via SSH (Secure Shell). The login process differs slightly between operating systems.
+NMTHPC can only be accessed via SSH (Secure Shell), which is available through a terminal on most operating systems.
 
 ### Login Information
 
 - **Hostname**: `nmthpc.id.nmt.edu` 
 - **Username**: Your NMT 900 number.
-- **Password**: Your institutional password.
+- **Password**: Your academic lab password.
 
 ### From Linux or macOS
 
@@ -74,49 +72,7 @@ If you have WSL installed, use the same commands as Linux:
 $ ssh username@nmthpc.id.nmt.edu
 ```
 
-## SSH Keys (Recommended)
-
-SSH keys provide a more secure and convenient authentication method than passwords.
-
-### Generating SSH Keys
-
-**On Linux/macOS/WSL**:
-```bash
-$ ssh-keygen -t ed25519 -C "your_email@nmt.edu"
-```
-
-Press Enter to accept the default file location, then optionally enter a passphrase.
-
-**On Windows (PowerShell)**:
-```bash
-$ ssh-keygen -t ed25519 -C "your_email@nmt.edu"
-```
-
-### Copying Your Public Key to NMTHPC
-
-**Method 1: Using ssh-copy-id (Linux/macOS/WSL)**:
-```bash
-$ ssh-copy-id username@nmthpc.id.nmt.edu
-```
-
-**Method 2: Manual copy**:
-1. Display your public key:
-   ```bash
-   $ cat ~/.ssh/id_ed25519.pub
-   ```
-2. Log in to NMTHPC with your password
-3. Add the key to `~/.ssh/authorized_keys`:
-   ```bash
-   $ mkdir -p ~/.ssh
-   $ chmod 700 ~/.ssh
-   $ echo "your-public-key-content" >> ~/.ssh/authorized_keys
-   $ chmod 600 ~/.ssh/authorized_keys
-   ```
-
-After setting up SSH keys, you can log in without entering your password each time.
-
 ## First Login
-
 
 Upon your first login, you'll be in the home directory and you will see a welcome message with recent announcements or system information. 
 
@@ -141,7 +97,7 @@ Upon your first login, you'll be in the home directory and you will see a welcom
 ## Login Nodes vs. Compute Nodes
 
 ```{warning}
-**Important**: Login nodes are for light tasks only (editing files, submitting jobs, compiling code). Do NOT run computationally intensive jobs on login nodes. Use SLURM to submit jobs to compute nodes.
+**Important**: Login nodes are for light tasks only (editing files, submitting jobs, compiling simple code). Do NOT run computationally tasks on login nodes that takes more than one processor, large amounts of RAM, or a few second to run. Use SLURM to submit jobs to compute nodes and interactive jobs via srun to compile complex software packages.
 ```
 
 
@@ -159,18 +115,10 @@ See [Running Interactive Jobs](../using_nmthpc/interactive_jobs.md) and [Running
 
 - Double-check your username and password
 - Verify your account hasn't expired
-- If using SSH keys, ensure permissions are correct (`chmod 600 ~/.ssh/id_ed25519`)
-
-### Too Many Authentication Failures
-
-If you have many SSH keys, specify which one to use:
-```bash
-$ ssh -i ~/.ssh/id_ed25519 username@nmthpc.id.nmt.edu
-```
 
 ## Getting Help
 
 If you encounter issues logging in:
-- Contact HPC support at **hpc@nmthpc.atlassian.net**
+- Contact HPC support by creating a ticket through the [Jira support portal](https://nmthpc.atlassian.net/servicedesk/customer/portal/2)
 - Include error messages and what you've tried
 - Specify your operating system and connection method
