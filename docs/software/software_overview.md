@@ -18,7 +18,6 @@ Here we provide a summary of the software packages currently available on NMTHPC
 | [Git](https://git-scm.com/downloads) | 2.31.0 | Git is a distributed version control system that tracks changes in any set of computer files.| 
 | [HDF5](https://www.hdfgroup.org/solutions/hdf5/) | 1.10.1, 1.12.1, 1.14.5 | HDF5 is a data model, library, and file format for storing and managing data.|
 | [Intel MPI (impi)](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html#gs.nwdbyx) | 2021.4.0, 2021.5.0, 2021.13 | The Intel MPI Library is a multifabric message-passing library that implements the open source MPICH specification.| 
-| [Julia](https://julialang.org/) | 0.6.2, 1.6.0, 1.6.6, 1.8.1, 1.9.4, 1.10.0, 1.10.2, 1.11.6 (D) | Julia is a high-level, dynamic programming language. Its features are well suited for numerical analysis and computational science. |
 | [Ncview](https://cirrus.ucsd.edu/ncview/) | 2.1.7 | Ncview is a visual browser for netCDF format files. | 
 | [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) | 4.8.1, 4.9.2 | NetCDF (Network Common Data Form) is a set of software libraries and machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.|
 | [OpenBLAS](https://www.openblas.net/) | 0.3.20, 0.3.28 | OpenBLAS is an optimized Basic Linear Algebra Subprograms (BLAS) library based on GotoBLAS 21.13 BSD version. | 
