@@ -18,7 +18,7 @@ Here we provide a summary of the software packages currently available on NMTHPC
 | [Git](https://git-scm.com/downloads) | 2.31.0 | Git is a distributed version control system that tracks changes in any set of computer files.| 
 | [HDF5](https://www.hdfgroup.org/solutions/hdf5/) | 1.10.1, 1.12.1, 1.14.5 | HDF5 is a data model, library, and file format for storing and managing data.|
 | [Intel MPI (impi)](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html#gs.nwdbyx) | 2021.4.0, 2021.5.0, 2021.13 | The Intel MPI Library is a multifabric message-passing library that implements the open source MPICH specification.| 
-| [OpenBLAS](https://www.openblas.net/) | 0.3.20, 0.3.28 | OpenBLAS is an optimized Basic Linear Algebra Subprograms (BLAS) library based on GotoBLAS 21.13 BSD version. | 
+| [OpenBLAS](https://www.openblas.net/) | 0.3.25, 0.3.28 (D) | OpenBLAS is an optimized Basic Linear Algebra Subprograms (BLAS) library based on GotoBLAS 21.13 BSD version. | 
 | [Open MPI](https://www.open-mpi.org/) | 4.1.1, 4.1.4, 5.0.6 | The Open MPI Project is an open source Message Passing Interface implementation that is developed and maintained by a consortium of academic, research, and industry partners. | 
 | [Python](https://www.python.org/) | 2.7.18, 3.10.2 (D) |Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.| 
 | [R](https://www.r-project.org/) | 3.6.3, 4.2.2, 4.4.0 (D)|R is a programming language for statistical computing and graphics.| 
