@@ -12,7 +12,8 @@ Here we provide a summary of the software packages currently available on NMTHPC
 
 | Application           | Version(s)          | Description      |
 | --------------------- | ------------------- | ---------------- |
-| [Anaconda](https://www.anaconda.com/products/distribution) | 2020.11, 2022.10, 2023.09 (D) | Anaconda is a distribution of the Python and R programming languages for scientific computing, that aims to simplify package management and deployment. 
+| [Anaconda](https://www.anaconda.com/products/distribution) | 2020.11, 2022.10, 2023.09 (D) | Anaconda is a distribution of the Python and R programming languages for scientific computing, that aims to simplify package management and deployment. |
+| [Aspect](https://aspect.geodynamics.org) | 3.0.0 | Aspect is an extensible code written in C++ to support research in simulating convection in the solid Earth and elsewhere. It provides the geosciences with a well-documented and extensible code base for their research needs. |
 | [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) (G) | 11.2, 11.3, 11.4, 11.7, 11.8, 12.1.1 (D), 12.9* | The NVIDIA CUDA Toolkit includes GPU-accelerated libraries, debugging and optimization tools, a C/C++ compiler, and a runtime library to deploy your application. *Included in the `nvhpc_sdk/2025.255` module. Future CUDA versions will only be available through the NVIDIA HPC SDK module. | 
 | [gcc](https://gcc.gnu.org/) |  10.3.0, 11.2.0, 13.2.0, 14.2.0 (D) |The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...).| 
 | [Git](https://git-scm.com/downloads) | 2.31.0 | Git is a distributed version control system that tracks changes in any set of computer files.| 
