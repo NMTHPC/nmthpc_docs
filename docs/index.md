@@ -71,7 +71,6 @@ software/anaconda
 software/python
 software/r
 software/vasp
-software/spack
 ```
 
 ```{toctree}
