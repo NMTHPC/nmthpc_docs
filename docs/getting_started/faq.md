@@ -148,10 +148,10 @@ $ module load python/3.11
 Yes! You can:
 
 - Install Python packages in your home directory with \`pip install --user\`
-- Create Anaconda environments
+- Create Conda environments
 - Compile software in your home directory
 
-See specific software guides in the [Software and Examples](../software/anaconda.md) section.
+See specific software guides in the [Software Overview](../software/software_overview.md) section.
 
 ### I need software that's not installed. What should I do?
 

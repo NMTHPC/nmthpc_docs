@@ -237,7 +237,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ./my_openmp_program
 ```
 
-### Python Job with Anaconda
+### Python Job with Miniforge
 
 ```bash
 #!/bin/bash
@@ -248,14 +248,13 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 #SBATCH --mem=16G
 #SBATCH --time=06:00:00
 
-module load anaconda3
+module load miniforge3
 
-source activate myenv
+conda activate myenv
 
 python analysis.py --input data.csv --output results.txt
 ```
 
-See [Anaconda](../software/anaconda.md) for more Python examples.
 
 ## Job Submission and Management
 

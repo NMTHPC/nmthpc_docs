@@ -1,8 +1,12 @@
-# Anaconda
+# Miniforge
 
-Anaconda is a package and environment management system for Python. It's the recommended way to manage Python environments on NMTHPC.
+Miniforge is a lightweight Conda distribution that provides Python package and environment management. It is the recommended way to create and manage Conda environments on NMTHPC.
 
-## Why Use Anaconda?
+## Python and R Support
+
+Miniforge provides the Conda package and environment manager, allowing users to create isolated environments for Python, R, and many other scientific applications. Using Conda environments helps avoid dependency conflicts and makes workflows easier to reproduce.
+
+## Why Use Miniforge?
 
 **Benefits**:
 
@@ -12,17 +16,32 @@ Anaconda is a package and environment management system for Python. It's the rec
 - Avoid conflicts between package requirements
 - Share reproducible environments with collaborators
 
-## Loading Anaconda
+## Loading Miniforge
 
 ```bash
-$ module load anaconda3
+$ module load miniforge3
 ```
+
+Loading the `miniforge3` module makes the `conda` command available in your shell.
 
 **Verify installation**:
 ```bash
 $ conda --version
 $ which conda
 ```
+
+
+## Configuring Conda
+
+Conda stores its configuration in a file named `.condarc` located in your home directory (`~/.condarc`). This file controls where Conda stores environments and downloaded packages.
+
+View or edit the file with your preferred text editor:
+
+```bash
+$ nano ~/.condarc
+```
+
+After saving changes, future Conda commands will automatically use the updated configuration.
 
 ## Creating Environments
 
@@ -54,6 +73,32 @@ $ conda create -n data_analysis python=3.11 numpy pandas matplotlib scipy
 ```bash
 $ conda activate data_analysis
 $ conda install scikit-learn seaborn
+```
+
+### R Environment
+
+Create an environment with R:
+
+```bash
+$ conda create -n r_env r-base
+```
+
+Activate it:
+
+```bash
+$ conda activate r_env
+```
+
+Start an R session:
+
+```bash
+$ R
+```
+
+Install packages from CRAN as usual:
+
+```R
+install.packages("ggplot2")
 ```
 
 ## Managing Packages
@@ -185,7 +230,7 @@ $ conda env create -f environment.yml
 
 ```bash
 $ srun --pty bash
-$ module load anaconda3
+$ module load miniforge3
 $ conda activate myenv
 $ python my_script.py
 ```
@@ -200,18 +245,18 @@ $ python my_script.py
 #SBATCH --mem=16G
 #SBATCH --time=04:00:00
 
-# Load anaconda
-module load anaconda3
+# Load Miniforge
+module load miniforge3
 
 # Activate environment
-source activate myenv
+conda activate myenv
 
 # Run Python script
 python analysis.py
 ```
 
 ```{note}
-Use `source activate` in batch scripts instead of `conda activate` for better compatibility.
+Use `conda activate` after loading the Miniforge module to activate your environment.
 ```
 
 ## Common Environments for HPC
@@ -254,6 +299,24 @@ $ conda create -n science python=3.11 \
     numpy scipy matplotlib \
     sympy numba h5py netcdf4
 ```
+
+## Using Mamba
+
+Mamba is a fast, drop-in replacement for Conda that can significantly reduce package installation time.
+
+Install Mamba into your environment:
+
+```bash
+$ conda install -c conda-forge mamba
+```
+
+Then replace `conda` commands with `mamba`:
+
+```bash
+$ mamba install numpy pandas scipy
+```
+
+Most Conda commands work the same with Mamba.
 
 ## Best Practices
 
@@ -369,6 +432,14 @@ $ conda env remove -n unused_env
 $ conda clean --all
 ```
 
+### Package Conflicts
+
+If Conda cannot resolve package dependencies:
+
+- Install multiple packages together in a single `conda install` command.
+- Create a fresh environment instead of trying to repair a heavily modified one.
+- Consider using `mamba` for faster dependency resolution.
+
 **Contact HPC support** if you need more quota.
 
 ## Example Workflows
@@ -376,8 +447,8 @@ $ conda clean --all
 ### Creating a New Project Environment
 
 ```bash
-# Load anaconda
-$ module load anaconda3
+# Load miniforge
+$ module load miniforge3
 
 # Create environment
 $ conda create -n myproject python=3.11
@@ -432,7 +503,7 @@ $ conda env export > ml_environment.yml
 
 | Task | Command |
 |------|---------|
-| Load Anaconda | `module load anaconda3` |
+| Load Miniforge | `module load miniforge3` |
 | Create environment | `conda create -n myenv python=3.11` |
 | Activate environment | `conda activate myenv` |
 | Deactivate | `conda deactivate` |
@@ -453,4 +524,5 @@ $ conda env export > ml_environment.yml
 
 ## Questions?
 
-For questions about Anaconda on NMTHPC, contact <hpc@nmthpc.atlassian.net>.
+For questions about Miniforge on NMTHPC, contact <hpc@nmthpc.atlassian.net>.
+

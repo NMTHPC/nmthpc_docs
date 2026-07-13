@@ -196,7 +196,7 @@ module load cuda/12.1
 module load python/3.11
 
 # Or use conda environment
-# module load anaconda3
+# module load miniforge3
 # source activate pytorch_env
 
 python train.py --epochs 100 --batch-size 64
@@ -549,7 +549,7 @@ echo "Job completed at $(date)"
 
 <!-- - [Training AI/ML Models on GPUs](../software/ai_ml_gpu.md) --->
 <!-- - [Python and Jupyter Notebooks](../software/python_jupyter.md) --->
-- [Anaconda](../software/anaconda.md)
+- [Software Overview](../software/software_overview.md)
 
 ## Questions?
 

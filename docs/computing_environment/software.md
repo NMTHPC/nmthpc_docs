@@ -87,7 +87,7 @@ $ module load intel-oneapi-compilers/2024.0.2-j5ujkki
 $ module load python/3.12.5-xondaab
 ```
 
-See [Python and Jupyter Notebooks](../software/python.md) for detailed information.
+See Python website for detailed information.
 
 **R**:
 ```bash
@@ -140,17 +140,17 @@ See [VASP](../software/vasp.md) for computational chemistry examples.
 ## Python Package Management
 
 
-### Using Anaconda/Miniconda
+### Using Miniforge/Conda
 
-Anaconda is recommended for managing Python environments:
+Miniforge provides a lightweight conda-based environment manager for creating and managing Python environments:
 ```bash
-$ module load anaconda
+$ module load miniforge3
 $ conda create -n myenv python=3.12.5
 $ conda activate myenv
 $ conda install numpy scipy matplotlib
 ```
 
-See [Anaconda](../software/anaconda.md) for instructions.
+
 
 ## R Package Installation
 
@@ -268,8 +268,6 @@ Be cautious about loading modules automatically in `.bashrc`. This can cause iss
 
 ## Additional Resources
 
-- [Anaconda](../software/anaconda.md)
-- [Python and Jupyter Notebooks](../software/python.md)
 - [R](../software/r.md)
 
 ## Questions?

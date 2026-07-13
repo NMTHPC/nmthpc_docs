@@ -67,8 +67,7 @@ using_nmthpc/gpu_jobs
 :caption: Software and Examples
 
 software/software_overview
-software/anaconda
-software/python
+software/miniforge
 software/r
 software/vasp
 ```
