@@ -53,13 +53,13 @@ This command extracts the contents of the compressed archive and creates a new d
 Then, change your current working directory to the `orca_test` folder, where the sample input files and job script are located:
 
 ```bash
-cd orca_test
+$ cd orca_test
 ```
 
 List the files in the directory:
 
 ```bash
-ls
+$ ls
 ```
 
 You should see files similar to:
@@ -73,7 +73,7 @@ H2O_vac.gbw
 Submit the test job to the Slurm scheduler:
 
 ```bash
-sbatch orca_test.sh
+$ sbatch orca_test.sh
 ```
 
 After submitting the job, you should receive output similar to:
@@ -89,7 +89,7 @@ This should allow you to run a job on the cluster for the first time on the NMTH
 After the job completes, verify that the output file was created:
 
 ```bash
-ls
+$ ls
 ```
 
 The output file `h2o.out` should be present.
@@ -97,7 +97,7 @@ The output file `h2o.out` should be present.
 Display the output file:
 
 ```bash
-cat h2o.out
+$ cat h2o.out
 ```
 
 A successful ORCA calculation should display the ORCA banner followed by the calculation output and complete without runtime errors similar to:
@@ -145,7 +145,10 @@ ORCA calculations require an input file (`.inp`) containing the molecular struct
 #SBATCH --mem-per-cpu=4G
 #SBATCH --time=24:00:00
 
+# Load OpenMPI
 module load openmpi/4.1.8-ic5igts
+
+# Load ORCA
 module load orca/6.1.1-gb7ixdg
 
 $(which orca) input.inp > output.out 2>&1
