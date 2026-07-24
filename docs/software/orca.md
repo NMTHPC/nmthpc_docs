@@ -140,6 +140,8 @@ ORCA calculations require an input file (`.inp`) containing the molecular struct
 ```bash
 #!/bin/bash
 #SBATCH --job-name=orca_calc
+#SBATCH --partition=comptest
+#SBATCH --qos=testing
 #SBATCH --output=orca_%j.out
 #SBATCH --ntasks=16
 #SBATCH --mem-per-cpu=4G
