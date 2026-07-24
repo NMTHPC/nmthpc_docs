@@ -70,6 +70,7 @@ software/software_overview
 software/miniforge
 software/r
 software/vasp
+software/orca
 ```
 
 ```{toctree}
