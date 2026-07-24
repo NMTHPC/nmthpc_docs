@@ -149,10 +149,10 @@ ORCA calculations require an input file (`.inp`) containing the molecular struct
 #SBATCH --time=01:00:00
 
 # Load OpenMPI
-module load openmpi/4.1.8-ic5igts
+module load openmpi/5.0.5
 
 # Load ORCA
-module load orca/6.1.1-gb7ixdg
+module load orca/6.1.1
 
 $(which orca) input.inp > output.out 2>&1
 ```
