@@ -33,15 +33,12 @@ Open a new Terminal window on your local computer (not the SSH session) and copy
 $ scp /path/to/orca_test.tar.gz your_username@nmthpc_hostname:~
 ```
 
-> ***NOTE***
-> 
-> Replace:
-> 
-> - `/path/to/orca_test.tar.gz` with the location of the file on your laptop.
-> 
-> - `your_username` with your NMTHPC username.
-> 
-> - `nmthpc_hostname` with the hostname you normally SSH into.
+```{note}
+Replace:
+- `/path/to/orca_test.tar.gz` with the location of the file on your laptop.
+- `your_username` with your NMTHPC username.
+- `nmthpc_hostname` with the hostname you normally SSH into.
+```
 
 The test archive should now be available on your NMTHPC system.
 
