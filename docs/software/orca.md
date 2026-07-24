@@ -103,30 +103,30 @@ cat h2o.out
 A successful ORCA calculation should display the ORCA banner followed by the calculation output and complete without runtime errors similar to:
 
 ```text
-                                                  *****************
-                                                  * O   R   C   A *
-                                                  *****************
+                                            *****************
+                                            * O   R   C   A *
+                                            *****************
 
-                              #########################################################
-                              #                        -***-                          #
-                              #          Department of theory and spectroscopy        #
-                              #                                                       #
-                              #                      Frank Neese                      #
-                              #                                                       #
-                              #     Directorship, Architecture, Infrastructure        #
-                              #                    SHARK, DRIVERS                     #
-                              #        Core code/Algorithms in most modules           #
-                              #                                                       #
-                              #        Max Planck Institute fuer Kohlenforschung      #
-                              #                Kaiser Wilhelm Platz 1                 #
-                              #                 D-45470 Muelheim/Ruhr                 #
-                              #                      Germany                          #
-                              #                                                       #
-                              #                  All rights reserved                  #
-                              #                        -***-                          #
-                              #########################################################
+                        #########################################################
+                        #                        -***-                          #
+                        #          Department of theory and spectroscopy        #
+                        #                                                       #
+                        #                      Frank Neese                      #
+                        #                                                       #
+                        #     Directorship, Architecture, Infrastructure        #
+                        #                    SHARK, DRIVERS                     #
+                        #        Core code/Algorithms in most modules           #
+                        #                                                       #
+                        #        Max Planck Institute fuer Kohlenforschung      #
+                        #                Kaiser Wilhelm Platz 1                 #
+                        #                 D-45470 Muelheim/Ruhr                 #
+                        #                      Germany                          #
+                        #                                                       #
+                        #                  All rights reserved                  #
+                        #                        -***-                          #
+                        #########################################################
 
-                                                [Calculation Output]
+                                          [Calculation Output]
 ```
 
 This test verifies that the ORCA module is available and that you can successfully submit and run jobs on the NMTHPC cluster.
