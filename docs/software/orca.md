@@ -131,6 +131,31 @@ A successful ORCA calculation should display the ORCA banner followed by the cal
 
 This test verifies that the ORCA module is available and that you can successfully submit and run jobs on the NMTHPC cluster.
 
+### Running Your Own Calculations
+
+ORCA calculations require an input file (`.inp`) containing the molecular structure and calculation parameters.
+
+**Example Batch Job**
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=orca_calc
+#SBATCH --output=orca_%j.out
+#SBATCH --ntasks=16
+#SBATCH --mem-per-cpu=4G
+#SBATCH --time=24:00:00
+
+module load openmpi/4.1.8-ic5igts
+module load orca/6.1.1-gb7ixdg
+
+$(which orca) input.inp > output.out 2>&1
+```
+
+**Note**
+
+- Replace `input.inp` with your ORCA input file.
+- The number of tasks requested with `--ntasks` should match the `nprocs` value specified in the `%pal` block of your input file for parallel calculations.
+
 ## Additional Resources
 
 - [Official ORCA Documentation](https://www.faccts.de/orca/)
