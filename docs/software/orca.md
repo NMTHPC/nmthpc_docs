@@ -131,7 +131,7 @@ A successful ORCA calculation should display the ORCA banner followed by the cal
 
 This test verifies that the ORCA module is available and that you can successfully submit and run jobs on the NMTHPC cluster.
 
-### Running Your Own Calculations
+## Running Your Own Calculations
 
 ORCA calculations require an input file (`.inp`) containing the molecular structure and calculation parameters.
 
