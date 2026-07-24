@@ -135,7 +135,7 @@ This test verifies that the ORCA module is available and that you can successful
 
 ORCA calculations require an input file (`.inp`) containing the molecular structure and calculation parameters.
 
-**Example Batch Job**
+### Batch Jobs
 
 ```bash
 #!/bin/bash
@@ -151,10 +151,10 @@ module load orca/6.1.1-gb7ixdg
 $(which orca) input.inp > output.out 2>&1
 ```
 
-**Note**
-
+```{Note}
 - Replace `input.inp` with your ORCA input file.
 - The number of tasks requested with `--ntasks` should match the `nprocs` value specified in the `%pal` block of your input file for parallel calculations.
+```
 
 ## Additional Resources
 
