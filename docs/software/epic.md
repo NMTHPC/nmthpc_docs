@@ -15,15 +15,15 @@ $ epic --version
 $ which epic
 ```
 
-## Running ORCA
+## Running EPIC
 
-### Testing ORCA
+### Testing EPIC
 
 
 
 ## Additional Resources
 
-- [Official ORCA Documentation](https://arxiv.org/abs/2509.16212)
+- [Official EPIC Documentation](https://arxiv.org/abs/2509.16212)
 - [NMTHPC Software Overview](software_overview.md)
 
 ## Contact
