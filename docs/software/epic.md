@@ -1,4 +1,4 @@
-# ORCA
+# EPIC
 
 This guide covers using EPIC as an AI-driven platform designed to augment operational data analytics
 
