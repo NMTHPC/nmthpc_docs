@@ -1,6 +1,6 @@
 # EPIC
 
-This guide covers using EPIC as an AI-driven platform designed to augment operational data analytics
+This guide covers using EPIC (Explicit Planetary Isentropic Coordinate) as an atmospheric modeling application used to simulate planetary atmospheres and generate scientific output for analysis.
 
 ## Loading EPIC
 
