@@ -76,7 +76,6 @@ You should see files similar to:
 epic000.nc
 epic.nc
 eigenvalues.txt
-eigenvalues_raul.txt
 grs.txt
 vertical.txt
 zonal_wind.txt
