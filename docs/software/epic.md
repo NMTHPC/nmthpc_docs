@@ -15,7 +15,7 @@ $ epic --version
 $ which epic
 ```
 
-If the module loads correctly, the command will display the location of the EPIC3 executable.
+This command displays the location of the ORCA executable. If ORCA is loaded successfully, it should return the path to the ORCA executable.
 
 ## Running EPIC3
 
