@@ -1,3 +1,5 @@
+[epic_test.tar.gz](https://github.com/user-attachments/files/30717189/epic_test.tar.gz)
+
 # EPIC
 
 This guide covers using EPIC3 (Explicit Planetary Isentropic Coordinate) on the NMTHPC cluster. EPIC3 is as an atmospheric modeling application used to simulate planetary atmospheres and generate scientific output for analysis.
