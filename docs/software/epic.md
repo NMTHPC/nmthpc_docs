@@ -2,20 +2,71 @@
 
 This guide covers using EPIC3 (Explicit Planetary Isentropic Coordinate) on the NMTHPC cluster. EPIC3 is as an atmospheric modeling application used to simulate planetary atmospheres and generate scientific output for analysis.
 
-## Loading EPIC3
+## Installing EPIC3
+
+The EPIC3 installation archive is available in the shared software directory on NMTHPC.
+
+Copy the archive to your current working directory:
 
 ```bash
-$ module avail epic3
-$ module load epic3
+$ cp /home/shared_folder/epic/epic3_alpine_jul18_2024.tar .
 ```
 
-**Verify installation**:
+```{note}
+The `cp` command copies a file from one location to another. In this example, the period (`.`) at the end of the command represents your current working directory, so the archive will be copied there.
+```
+
+Verify that the archive was copied successfully:
+
 ```bash
-$ epic --version
-$ which epic
+$ ls
 ```
 
-This command displays the location of the ORCA executable. If ORCA is loaded successfully, it should return the path to the ORCA executable.
+You should see:
+
+```text
+epic3_alpine_jul18_2024.tar
+```
+
+Extract the archive:
+
+```bash
+$ tar -xvf epic3_alpine_jul18_2024.tar
+```
+
+```{note}
+The `tar` command extracts the contents of the archive into a new directory while preserving the original files.
+```
+
+Verify that the EPIC3 directory was created:
+
+```bash
+$ ls
+```
+
+You should see a directory similar to:
+
+```text
+epic3/
+```
+
+Change the directory into EPIC3:
+
+```bash
+$ cd epic3
+```
+
+Verify your current location:
+
+```bash
+$ pwd
+```
+
+The output should resemble:
+
+```text
+/home/your_username/epic3
+```
 
 ## Running EPIC3
 
@@ -34,7 +85,7 @@ Open a new terminal window on your local computer (not your SSH session).
 Transfer the test archive to your NMTHPC home directory using the `scp` (Secure Copy) command.
 
 ```bash
-scp /path/to/epic_test.tar.gz your_username@nmthpc_hostname:~
+$ scp /path/to/epic_test.tar.gz your_username@nmthpc_hostname:~
 ```
 
 ```{note}
@@ -53,7 +104,7 @@ Connect to the NMTHPC cluster using SSH.
 Extract the archive:
 
 ```bash
-tar -xzvf epic_test.tar.gz
+$ tar -xzvf epic_test.tar.gz
 ```
 
 This command extracts the compressed archive and creates a directory containing the EPIC3 test files.
@@ -61,13 +112,13 @@ This command extracts the compressed archive and creates a directory containing 
 Move into the test directory:
 
 ```bash
-cd epic_test
+$ cd epic_test
 ```
 
 List the files:
 
 ```bash
-ls
+$ ls
 ```
 
 You should see files similar to:
@@ -86,7 +137,7 @@ zonal_wind.txt
 Load the required MPI module:
 
 ```bash
-module load openmpi/5.0.5
+$ module load openmpi/5.0.5
 ```
 
 **Verify installation**:
@@ -98,7 +149,7 @@ $ which mpirun
 Run the EPIC3 simulation:
 
 ```bash
-mpirun -np 4 /home/900#/epic3/bin/mpi_epic.LINUX -itout 20 -itsave 5 -itback 10 epic000.nc
+$ mpirun -np 4 /home/900#/epic3/bin/mpi_epic.LINUX -itout 20 -itsave 5 -itback 10 epic000.nc
 ```
 
 ### Verify the Output
@@ -106,7 +157,7 @@ mpirun -np 4 /home/900#/epic3/bin/mpi_epic.LINUX -itout 20 -itsave 5 -itback 10 
 After the simulation completes, list the files in the directory:
 
 ```bash
-ls
+$ ls
 ```
 
 The simulation should produce output files similar to:
@@ -125,7 +176,7 @@ The generated files contain the simulation results and can be used for further a
 You can display a text output file using:
 
 ```bash
-cat eigenvalues.txt
+$ cat eigenvalues.txt
 ```
 
 ## Additional Resources
