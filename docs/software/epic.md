@@ -68,6 +68,42 @@ The output should resemble:
 /home/your_username/epic3
 ```
 
+## Starting an Interactive Session
+
+Before running EPIC3, start an interactive Slurm session on a compute node. This provides the compute resources required to run MPI applications.
+
+Request an interactive session:
+
+```bash
+$ srun -p comptest --qos=testing -N1 -n4 --cpus-per-task=1 --time=00:30:00 --pty bash
+```
+
+This command requests:
+
+| Option | Description |
+|--------|-------------|
+| `-p comptest` | Uses the `comptest` partition for software testing. |
+| `--qos=testing` | Uses the testing Quality of Service (QoS). |
+| `-N1` | Requests one compute node. |
+| `-n4` | Starts four MPI tasks (processes). |
+| `--cpus-per-task=1` | Allocates one CPU core for each MPI task. |
+| `--time=00:30:00` | Sets a maximum runtime of 30 minutes. |
+| `--pty bash` | Starts an interactive Bash shell on the allocated compute node. |
+
+After the command completes, your terminal prompt will change, indicating that you are now running on a compute node instead of the login node.
+
+You can verify this by running:
+
+```bash
+$ hostname
+```
+
+The command should display the name of the compute node assigned to your job.
+
+```{note}
+When you are finished testing EPIC3, type `exit` to end the interactive session and release the allocated resources.
+```
+
 ## Running EPIC3
 
 ### Testing EPIC3
