@@ -6,7 +6,7 @@ This guide covers using EPIC3 (Explicit Planetary Isentropic Coordinate) on the 
 
 The EPIC3 installation archive is available in the shared software directory on NMTHPC.
 
-Copy the archive to your current working directory:
+Connect to the NMTHPC cluster via SSH and copy the archive to your home directory :
 
 ```bash
 $ cp /home/shared_folder/epic/epic3_alpine_jul18_2024.tar .
