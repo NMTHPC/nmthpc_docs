@@ -71,6 +71,7 @@ software/miniforge
 software/r
 software/vasp
 software/orca
+software/epic
 ```
 
 ```{toctree}
