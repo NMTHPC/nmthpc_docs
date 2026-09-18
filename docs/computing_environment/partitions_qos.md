@@ -18,10 +18,10 @@ $ sinfo
 **Example output**:
 ```
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-defq*      up 2-00:00:00     21   idle node[01-14]
-cpu.std    up 2-00:00:00     16   alloc node[15-16]
-gpu        up 1-00:00:00      2   idle gpu01
-cpu.hm     up 2-00:00:00      3   idle himem[01-02]
+comptest   up.  01:00:00      1.  idle node1 
+cpu.std    up 2-00:00:00     16   idle node[2-16]
+gpu        up 1-00:00:00      2   idle gpu[1-2]
+cpu.hm     up 2-00:00:00      3   idle himem[1-3]
 ```
 
 **Key columns**:
@@ -39,7 +39,7 @@ cpu.hm     up 2-00:00:00      3   idle himem[01-02]
 Use `sinfo` to see actual up-to-date partitions on NMTHPC.
 ```
 
-#### Standard (defq) Partition
+#### Standard (cpu.std) Partition
 
 **Purpose**: General-purpose CPU computing
 
@@ -58,7 +58,7 @@ Use `sinfo` to see actual up-to-date partitions on NMTHPC.
 
 **Example job submission**:
 ```bash
-#SBATCH --partition=defq
+#SBATCH --partition=cpu.std
 #SBATCH --ntasks=16
 #SBATCH --time=24:00:00
 ```
@@ -136,90 +136,45 @@ $ sacctmgr show qos
 $ sacctmgr show user $USER withassoc format=user,account,qos
 ```
 
-### Available QOS Levels
 
+### Resource Priority & QoS Matrix
 
+The following table details the baseline priority values, preemption behaviors, and resource boundary allocations across all active QOS queues on NMTHPC.
 
-#### Normal QOS
+| QOS NAME | PRIORITY | PARTITION(S) / HARDWARE | PREEMPTION | MAX CPU | MAX NODE | MAX GPU | MAX WALL |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **scaling_test** <br> `SCALING PHASE` | 150000 | `cpu.std` (node[2-16]) | - | - | - | - | 7-00:00:00 |
+| **compile** | 110000 | `comptest` (node1) | - | 32 | 1 | - | 01:00:00 |
+| **testing** | 100000 | `comptest` (node1) | - | 100 | 1 | - | 01:00:00 |
+| **normal** | 90000 | `cpu.std` (node[2-16]) | scaling_test | 1024 | 4 | - | 2-00:00:00 |
+| **hmem** | 90000 | `cpu.hm` (hm[1-3]) | - | 1536 | 2 | - | 7-00:00:00 |
+| **h100** | 90000 | `gpu` (gpu[1-2]) | - | 256 | 2 | 2 | 12:00:00 |
+| **long** | 70000 | `cpu.std` (node[2-16]) <br> `cpu.hm` (hm[1-3]) | QOS-long | 512 | 2 | - | 7-00:00:00 |
+| **h100-long** | 70000 | `gpu` (gpu[1-2]) | - | 128 | 1 | 1 | 2-00:00:00 |
+| **hmem-long** | 100 | `cpu.hm` (hm[1-3]) | - | 512 | 2 | - | 7-00:00:00 |
 
-**Characteristics**:
+### Available QOS Levels Detailed
 
-- Default QOS for most users
-- Standard priority
-- Reasonable resource limits
-- Most jobs run under this QOS
+#### Scaling Test QOS (`scaling_test`)
+- **Characteristics**: Highest priority queue tier dedicated to validation runs during scaling development tracking. 
+- **Limits**: Maximum wall time up to 7 days (`7-00:00:00`).
 
-**Limits** (to update once we have the final numbers):
+#### Compile QOS (`compile`)
+- **Characteristics**: Fast-tracked processing tier running strictly on isolated system hardware `node1`.
+- **Limits**: Constrained to a maximum profile of 32 CPUs, 1 node footprint, and up to 1 hour (`01:00:00`) wall time duration window. Devoted for parsing large, complex builds.
 
-- Max jobs per user: 100
-- Max cores per user: 128
-- Max GPUs per user: 2
-- Max wall time: 2 days
+#### Testing QOS (`testing`)
+- **Characteristics**: High scheduling priority environment operating on local hardware infrastructure `node1`.
+- **Limits**: Limited to 100 CPUs, 1 compute node, and a brief 1 hour (`01:00:00`) structural boundary runtime. Designed for swift prototyping evaluations.
 
-#### High Priority QOS
+#### Normal QOS (`normal`)
+- **Characteristics**: Standard core execution assignment framework across the cluster's main standard architectural nodes (`cpu.std`).
+- **Limits**: Cap bounds of 1024 CPUs, 4 total system node structures, and 2 days (`2-00:00:00`) limit runtime configurations. Susceptible to immediate priority preemption triggers initiated by operational `scaling_test` instances.
 
-**Characteristics**:
-
-- Higher scheduling priority
-- For time-sensitive work
-- May require special request
-
-**When to use**:
-
-- Conference deadlines
-- Time-critical research
-- Approved special projects
-
-**Request**: Contact HPC support
-
-#### Long QOS
-
-**Characteristics**:
-
-- Extended time limits
-- Lower priority
-- For jobs that truly need extended runtime
-
-**When to use**:
-
-- Simulations requiring > 2 days (up to 7 days currently)
-- Long-running optimizations
-
-**Example**:
-```bash
-#SBATCH --qos=long
-#SBATCH --time=14-00:00:00
-```
-
-#### h100 QOS
-
-QOS for GPU nodes (NVIDIA H100)
-
-#### h100-long QOS
-
-Some as long, but for GPU nodes.
-
-#### Testing QOS
-
-**Characteristics**:
-
-- Reserves a single node
-- Short jobs (max 1 hour walltime)
-- Use for time-sensitive code testing (limtied walltime and resources, but higher priority) 
-
-#### Compile QOS
-
-**Characteristics**:
-
-- Short jobs (max 4 hours walltime)
-- Use for demanding compilation jobs / building software
-
-#### Hmem QOS
-
-**Characteristics**:
-
-- Same as long, for high memory nodes. 
-
+#### High Memory QOS (`hmem`)
+- **Characteristics**: Default operational priority settings pinned directly over high-RAM operational configurations (`hm[1-3]`).
+- **Limits**: Scaled limit allocations of up to 1536 CPUs, 2 system nodes, and up to 7 days (`7-00:00:00`) timeline boundaries.
+ 
 ### Specifying QOS
 
 **In job script**:
