@@ -13,7 +13,7 @@ Acknowledging NMTHPC in your publications:
 
 ## Suggested Acknowledgment Text
 
-If this you use this system as part of a research project, please acknowledge acknowledge it  in journal articles or other media outlets as: 
+If you use this system as part of a research project, please acknowledge it in journal articles or other media outlets as: 
 
 ```{note}
 We are grateful for the computation time on the High Performance Computing resource at New Mexico Tech. NMTHPC was funded by the National Science Foundation (Award 2320162), and maintained by New Mexico Institute of Mining and Technology. 
@@ -43,7 +43,10 @@ We request $X dollars for X hours in computer services fees to support use of th
 You may adapt the following text for grant proposals:
 
 ```{note}
-New Mexico Tech provides high-performance computing resources through the NMT HPC cluster. The AMD-based system contains (1) 16 standard compute nodes each with 256 cores and 6 Gb of ram per core, (2) 3 high memory nodes each with 256 cores and 9 Gb of ram per core, and (3) 2 GPU nodes with 256 cores, Gb of ram per core, and 2 NVIDIA H100 GPUs.
+New Mexico Tech provides high-performance computing resources through the NMT HPC cluster. The AMD-based system contains:
+- (16) Standard compute nodes each with 256 CPU cores and 6 GB of RAM per core (1,536 GB total)
+- (3) High memory nodes each with 256 CPU cores and 9 GB of RAM per core (2,304 GB total)
+- (2) GPU nodes each with 128 CPU cores, 6 GB of RAM per core (768 GB total), and 1 NVIDIA H100 GPU (16,896 CUDA cores per GPU) 
 ```
 
 Please contact Dr. John Naliboff or write to <hpc@nmthpc.atlassian.net> for more information on how to leverage the HPC system in proposals and associated guidance on budgeting for HPC support services.
