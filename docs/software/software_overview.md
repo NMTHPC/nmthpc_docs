@@ -1,4 +1,4 @@
-# Software available
+# Available Software
 
 Here we provide a summary of the software packages currently available on NMTHPC.
 

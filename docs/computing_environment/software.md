@@ -1,4 +1,4 @@
-# Software Available on NMTHPC
+# Software Overview
 
 NMTHPC provides a wide range of scientific and research software. This page explains how to find and use available software.
 
