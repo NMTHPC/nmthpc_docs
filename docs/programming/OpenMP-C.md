@@ -84,7 +84,7 @@ module load gcc
 :sync: openmp-c-intelmpi
 
 ```bash
-module load intel
+module load intel-oneapi-compilers
 ```
 
 ````
@@ -109,7 +109,7 @@ g++ parallel_hello_world.cpp -o parallel_hello_world.exe -fopenmp
 :sync: openmp-c-intelmpi
 
 ```bash
-icc parallel_hello_world.cpp -o parallel_hello_world.exe -qopenmp
+icpx parallel_hello_world.cpp -o parallel_hello_world.exe -qopenmp
 ```
 
 ````
@@ -123,9 +123,9 @@ executable. Your job script should look something like this:
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --time=00:01:00
-#SBATCH --partition=atesting
-#SBATCH --qos=testing
+#SBATCH --partition=cpu.std
 #SBATCH --constraint=ib
+#SBATCH --qos=normal
 #SBATCH --ntasks=4
 #SBATCH --job-name=CPP_Hello_World
 #SBATCH --output=CPP_Hello_World.out
@@ -202,7 +202,7 @@ g++ parallel_hello_world.cpp -o parallel_hello_world.exe -fopenmp
 :sync: openmp-c-intelmpi
 
 ```bash
-icc parallel_hello_world.cpp -o parallel_hello_world.exe -qopenmp
+icpx parallel_hello_world.cpp -o parallel_hello_world.exe -qopenmp
 ```
 
 ````

@@ -40,8 +40,8 @@ module load openmpi
 :sync: mpi-c-comp-gnu-intel
 
 ```bash
-module load intel
-module load impi
+module load intel-oneapi-compilers
+module load intel-oneapi-mpi
 ```
 
 ````
@@ -186,7 +186,7 @@ mpic++ hello_world_mpi.cpp -o hello_world_mpi.exe
 :sync: mpi-c-intelmpi
 
 ```bash
-mpiicc hello_world_mpi.cpp -o hello_world_mpi.exe
+mpiicpx hello_world_mpi.cpp -o hello_world_mpi.exe
 ```
 
 ````
@@ -251,8 +251,8 @@ mpirun -np 4 ./hello_world_mpi.exe
 
 module purge
 
-module load intel
-module load impi
+module load intel-oneapi-compilers
+module load intel-oneapi-mpi
 
 mpirun -np 4 ./hello_world_mpi.exe
 ```
