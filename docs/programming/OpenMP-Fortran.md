@@ -75,7 +75,7 @@ module load gcc
 :sync: openmp-f-intelmpi
 
 ```bash
-module load intel
+module load intel-oneapi-compilers
 ```
 
 ````
@@ -101,7 +101,7 @@ gfortran parallel_hello_world.f90 -o parallel_hello_world.exe -fopenmp
 :sync: openmp-f-intelmpi
 
 ```bash
-ifort parallel_hello_world.f90 -o parallel_hello_world.exe -qopenmp
+ifx parallel_hello_world.f90 -o parallel_hello_world.exe -qopenmp
 ```
 
 ````
@@ -116,10 +116,9 @@ executable. Your job script should look something like this:
 
 #SBATCH --nodes=1
 #SBATCH --time=00:01:00
-#SBATCH --partition=atesting
-#SBATCH --qos=testing
+#SBATCH --partition=cpu.std
 #SBATCH --constraint=ib
-#SBATCH --qos=testing
+#SBATCH --qos=normal
 #SBATCH --ntasks=4
 #SBATCH --job-name=Fortran_Hello_World
 #SBATCH --output=Fortran_Hello_World.out
@@ -197,7 +196,7 @@ gfortran parallel_hello_world.f90 -o parallel_hello_world.exe -fopenmp
 :sync: openmp-f-intelmpi
 
 ```bash
-ifort parallel_hello_world.f90 -o parallel_hello_world.exe -qopenmp
+ifx parallel_hello_world.f90 -o parallel_hello_world.exe -qopenmp
 ```
 
 ````
@@ -206,10 +205,12 @@ ifort parallel_hello_world.f90 -o parallel_hello_world.exe -qopenmp
 Running our job script and we should end with an output file similar
 to this one:
 
+```
 Hello from process: 3
 Hello from process: 0
 Hello from process: 2
 Hello from process: 1
+```
 
 ```{note}
 Don’t worry about order of processes that printed, the threads
