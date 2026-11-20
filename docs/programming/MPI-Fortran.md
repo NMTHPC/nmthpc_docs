@@ -247,7 +247,8 @@ module load intel-oneapi-mpi
 mpirun -np 4 ./hello_world_mpi.exe
 ```
 
-
+````
+`````
 
 Our output file should look something like this (note the order of
 ranks isn’t necessarily sequential):
